@@ -1,3 +1,12 @@
+/*
+*********************************************************************************************************
+ *  @File Name     : policies.js
+ *  @Author        : Kashika Saxena (kashika.saxena@antrazal.com)
+ *  @Company       : Antrazal
+ *  @Date          : 16-12-2025
+ *  @Description   : Policy-related API routes
+ *********************************************************************************************************
+*/
 const express = require("express");
 const db = require("../db");
 
@@ -16,7 +25,7 @@ router.post("/", (req, res) => {
      (patient_id, plan, sum_insured, start_date, end_date, status)
      VALUES (?, ?, ?, ?, ?, 'ACTIVE')`,
     [patientId, plan, sumInsured, startDate, endDate],
-    err => {
+    (err) => {
       if (err) {
         console.error("Create policy error:", err);
         return res.status(500).json({ message: "Policy creation failed" });
@@ -44,7 +53,7 @@ router.put("/:id/cancel", (req, res) => {
 
       if (result.affectedRows === 0) {
         return res.status(400).json({
-          message: "Only ACTIVE policies can be cancelled"
+          message: "Only ACTIVE policies can be cancelled",
         });
       }
 
@@ -75,7 +84,7 @@ router.put("/:id/renew", (req, res) => {
 
       if (result.affectedRows === 0) {
         return res.status(400).json({
-          message: "Cancelled policies cannot be renewed"
+          message: "Cancelled policies cannot be renewed",
         });
       }
 
@@ -105,7 +114,7 @@ router.get("/patient/:patientId", (req, res) => {
       if (err) {
         console.error("Fetch policies error:", err);
         return res.status(500).json({
-          message: "Failed to fetch policies"
+          message: "Failed to fetch policies",
         });
       }
       res.json(results);
@@ -149,7 +158,8 @@ router.get("/stats", (req, res) => {
                  AND DATE_ADD(CURDATE(), INTERVAL 30 DAY)
                    AND status = 'ACTIVE'`,
                 (err, r4) => {
-                  if (err) return res.status(500).json({ message: "Stats error" });
+                  if (err)
+                    return res.status(500).json({ message: "Stats error" });
                   stats.expiringSoon = r4[0].count;
 
                   res.json(stats);
@@ -164,8 +174,3 @@ router.get("/stats", (req, res) => {
 });
 
 module.exports = router;
-
-
-
-
-

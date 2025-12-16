@@ -1,3 +1,13 @@
+/*
+*********************************************************************************************************
+ *  @File Name     : server.js
+ *  @Author        : Kashika Saxena (kashika.saxena@antrazal.com)
+ *  @Company       : Antrazal
+ *  @Date          : 16-12-2025
+ *  @Description   : Express server setup and API initialization
+ *********************************************************************************************************
+*/
+
 const express = require("express");
 const cors = require("cors");
 

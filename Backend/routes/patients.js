@@ -1,3 +1,12 @@
+/*
+*********************************************************************************************************
+ *  @File Name     : patients.js
+ *  @Author        : Kashika Saxena (kashika.saxena@antrazal.com)
+ *  @Company       : Antrazal
+ *  @Date          : 16-12-2025
+ *  @Description   : Patient-related API routes
+ *********************************************************************************************************
+*/
 const express = require("express");
 const db = require("../db");
 
