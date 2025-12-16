@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>HealthSure Policy Operations Portal</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+<header class="header">
+  <div class="header-left">
+    <img src="assets/logo.png" alt="HealthSure Logo" class="logo" />
+    <h1>HealthSure Policy Operations Portal</h1>
+  </div>
+
+  <div class="search-box">
+    <input type="text" placeholder="Search patients by name / phone / email" />
+  </div>
+</header>
+
+<div class="container">
+
+  <!-- LEFT COLUMN -->
+  <div class="left-column">
+
+    <div class="card" id="patientListCard">
+      <button class="primary-btn">＋ Onboard New Patient</button>
+
+      <div class="list-header">
+        <span>Name</span>
+        <span>Phone</span>
+        <span>City</span>
+        <span>Action</span>
+      </div>
+      <!-- Patients injected here -->
+    </div>
+
+    <!-- STATS -->
+    <div class="stats">
+      <div class="stat blue"><p>Active Policies</p><strong id="statActive">0</strong></div>
+      <div class="stat red"><p>Cancelled</p><strong id="statCancelled">0</strong></div>
+      <div class="stat grey"><p>Expired</p><strong id="statExpired">0</strong></div>
+      <div class="stat purple"><p>Expiring Soon</p><strong id="statExpiring">0</strong></div>
+    </div>
+
+  </div>
+
+  <!-- RIGHT COLUMN -->
+  <div class="right-column">
+  <!-- ================= POLICY MODAL ================= -->
+<div id="policy-modal-overlay" class="hidden">
+  <div class="modal">
+    <h2>Issue New Policy</h2>
+
+    <label>Plan</label>
+    <input id="policyPlan" type="text" placeholder="Gold / Silver / Basic" />
+
+    <label>Sum Insured</label>
+    <input id="policySum" type="number" />
+
+    <label>Start Date</label>
+    <input id="policyStart" type="date" />
+
+    <label>End Date</label>
+    <input id="policyEnd" type="date" />
+
+    <div class="modal-actions">
+      <button id="policyCancelBtn">Cancel</button>
+      <button id="policySaveBtn">Issue Policy</button>
+    </div>
+  </div>
+</div>
+
+    <!-- PATIENT SUMMARY -->
+    <div class="card summary-card">
+      <div class="summary-header">Patient Summary</div>
+
+      <div class="summary-body">
+        <img src="assets/patient1.png" class="avatar" />
+
+        <div class="summary-grid">
+          <div><span>Name</span> <strong id="summaryName">—</strong></div>
+          <div><span>City</span> <strong id="summaryCity">—</strong></div>
+          <div><span>Phone</span> <strong id="summaryPhone">—</strong></div>
+          <div><span>Email</span> <strong id="summaryEmail">—</strong></div>
+        </div>
+      </div>
+    </div>
+    <div class="policy-header">
+  <h3 class="policy-title">Policies</h3>
+  <button id="addPolicyBtn" class="primary-btn small">
+    ＋ Issue New Policy
+  </button>
+</div>
+
+    <!-- POLICIES -->
+    <div class="card">
+      <h3 class="policy-title">Policies</h3>
+
+      <table class="policy-table">
+        <thead>
+          <tr>
+            <th>Policy #</th>
+            <th>Plan</th>
+            <th>Sum Insured</th>
+            <th>Start Date</th>
+            <th>End Date</th>
+            <th>Status</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+
+        <tbody id="policyBody">
+          <!-- Policies injected here -->
+        </tbody>
+      </table>
+    </div>
+
+  </div>
+</div>
+
+<!-- MODAL -->
+<div id="modal-overlay" class="hidden">
+  <div class="modal">
+    <h2>Onboard New Patient</h2>
+
+    <div class="steps">
+      <span class="active"></span>
+      <span></span>
+      <span></span>
+    </div>
+
+    <div class="step step-1 active">
+      <label>First Name</label>
+      <input id="firstName" type="text" />
+      <small class="error" data-error-for="firstName"></small>
+
+      <label>Last Name</label>
+      <input id="lastName" type="text" />
+      <small class="error" data-error-for="lastName"></small>
+    </div>
+
+    <div class="step step-2">
+      <label>Email</label>
+      <input id="email" type="text" />
+      <small class="error" data-error-for="email"></small>
+
+      <label>Phone</label>
+      <input id="phone" type="tel" />
+      <small class="error" data-error-for="phone"></small>
+
+      <label>City</label>
+      <input id="city" type="text" />
+      <small class="error" data-error-for="city"></small>
+    </div>
+
+    <div class="step step-3">
+      <p>Please review your details and click Submit.</p>
+    </div>
+
+    <div class="modal-actions">
+      <button id="cancelBtn">Cancel</button>
+      <button id="nextBtn">Next</button>
+    </div>
+  </div>
+</div>
+
+<script type="module" src="js/main.js"></script>
+</body>
+</html>
+
+  
+
+
+
+
+
+
