@@ -1,3 +1,13 @@
+/*
+*********************************************************************************************************
+ *  @File Name     : validation.js
+ *  @Author        : Kashika Saxena (kashika.saxena@antrazal.com)
+ *  @Company       : Antrazal
+ *  @Date          : 16-12-2025
+ *  @Description   : Field-level validation logic
+ *********************************************************************************************************
+*/
+
 export const required = (fieldName) => {
   return (value) => {
     if (!value) return `${fieldName} is required`;

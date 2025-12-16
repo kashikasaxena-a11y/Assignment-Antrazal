@@ -1,3 +1,13 @@
+/*
+*********************************************************************************************************
+ *  @File Name     : db.js
+ *  @Author        : Kashika Saxena (kashika.saxena@antrazal.com)
+ *  @Company       : Antrazal
+ *  @Date          : 16-12-2025
+ *  @Description   : Database connection configuration
+ *********************************************************************************************************
+*/
+
 const mysql = require("mysql2");
 
 const db = mysql.createConnection({
